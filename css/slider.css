@@ -1,0 +1,49 @@
+:root {
+    --total-brand: 14;
+    --logo-width: 12rem;
+    --total-logo-width: calc(var(--total-brand) * var(--logo-width) *2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 12rem;
+    /* box-shadow: 0 .8rem 1.4rem -.2rem #0001; */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slider::before,
+.slider::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: var(--logo-width);
+}
+
+.slider ul.brands {
+    list-style: none;
+    width: var(--total-logo-width);
+    display: flex;
+    animation: slideleft 14s linear infinite;
+}
+
+@keyframes slideleft {
+    100% {
+        transform: translateX(calc(-100% /2))
+    }
+}
+
+ul.brands li.brand-logo {
+    width: var(--logo-width);
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 4rem;
+}
